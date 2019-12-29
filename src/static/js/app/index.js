@@ -36,7 +36,7 @@ const rangeSlider = noUiSlider.create(productSliderElement, {
 const renderConfigurations = (configurations) => {
 	serverListElement.innerHTML = '';
 
-	const sortingConfigurations = JSON.parse(configurations)
+	const sortingConfigurations = configurations
 		.filter((item) => {
 			return item.cpu.cores === +rangeSlider.get().substring(0, 1);
 		})
@@ -64,22 +64,24 @@ const renderConfigurations = (configurations) => {
 };
 
 const onSuccess = (data) => {
-	renderConfigurations(data);
+	const configurations = JSON.parse(data);
+
+	renderConfigurations(configurations);
 
 	rangeSlider.on('change', () => {
-		renderConfigurations(data);
+		renderConfigurations(configurations);
 	});
 
 	graphicInputElement.addEventListener('change', () => {
-		renderConfigurations(data);
+		renderConfigurations(configurations);
 	});
 
 	diskInputElement.addEventListener('change', () => {
-		renderConfigurations(data);
+		renderConfigurations(configurations);
 	});
 
 	memoryInputElement.addEventListener('change', () => {
-		renderConfigurations(data);
+		renderConfigurations(configurations);
 	});
 };
 
