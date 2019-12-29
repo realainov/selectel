@@ -55,8 +55,6 @@ const renderConfigurations = (configurations) => {
 
 		render(serverListElement, noConfigurationsElement);
 	} else {
-		console.log(sortingConfigurations);
-
 		sortingConfigurations.forEach((item) => {
 			const configurationElement = new Configuration(item).getElement();
 

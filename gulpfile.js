@@ -170,7 +170,7 @@ gulp.task('sprite', () => {
 		.pipe(gulp.dest('public'));
 });
 
-gulp.task('favicon:generate', (done) => {
+gulp.task('favicon', (done) => {
 	favicon.generateFavicon({
 		masterPicture: 'src/static/images/favicon.png',
 		dest: 'public/images/favicon',
@@ -225,24 +225,6 @@ gulp.task('favicon:generate', (done) => {
 	});
 });
 
-gulp.task('favicon:inject', () => {
-	return gulp.src([ 'public/*.html' ])
-		.pipe(favicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-		.pipe(gulp.dest('public/'));
-});
-
-gulp.task('favicon:update', (done) => {
-	const currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-	favicon.checkForUpdates(currentVersion, (err) => {
-		if (err) {
-			throw err;
-		}
-		done();
-	});
-});
-
-gulp.task('favicon', gulp.series('favicon:generate', 'favicon:inject', 'favicon:update'));
-
 gulp.task('browser-sync', () => {
 	browserSync.init({
 		server: {
@@ -253,11 +235,11 @@ gulp.task('browser-sync', () => {
 	browserSync.watch('public/**/*', browserSync.reload);
 });
 
-gulp.task('build', gulp.series('clean', 'copy', 'pages', 'styles', 'scripts', 'images', 'sprite'));
+gulp.task('build', gulp.series('clean', 'copy', 'pages', 'styles', 'scripts', 'images', 'sprite', 'favicon'));
 
 gulp.task('watcher', () => {
 	gulp.watch(['src/static/fonts', 'src/static/misc'], gulp.parallel('copy'));
-	gulp.watch('src/**/*.pug', gulp.series('pages', 'favicon'));
+	gulp.watch('src/**/*.pug', gulp.series('pages'));
 	gulp.watch('src/**/*.{styl,css}', gulp.parallel('styles'));
 	gulp.watch(['src/**/*.js', '!src/static/js/app/**/*.js'], gulp.parallel('scripts:main'));
 	gulp.watch('src/static/js/app/**/*.js', gulp.parallel('scripts:app'));
