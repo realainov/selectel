@@ -1,0 +1,34 @@
+section.configure.site-main__configure
+	- var sectionName = 'configure';
+
+	.center-wrapper.configure__center-wrapper
+		h2.title.configure__title Доступные конфигурации
+
+		form.configure__form
+			.form-field.configure__form-field.configure__form-field--product
+				label.form-field__label vCPU
+				.configure__product-slider.js-product-slider
+			.form-field.configure__form-field.configure__form-field--graphic
+				input.visually-hidden.js-graphic-input#graphic-input(type='checkbox' name='gpu')
+				label.form-field__label(for='graphic-input')
+					svg(width='12' height='8')
+						use(href='sprite.svg#checked')
+					= 'GPU'
+			.form-field.configure__form-field.configure__form-field--disk
+				input.visually-hidden.js-disk-input#disk-input(type='checkbox' name='raid')
+				label.form-field__label(for='disk-input')
+					svg(width='12' height='8')
+						use(href='sprite.svg#checked')
+					= 'RAID'
+			.form-field.configure__form-field.configure__form-field--memory
+				input.visually-hidden.js-memory-input#memory-input(type='checkbox' name='ssd')
+				label.form-field__label(for='memory-input')
+					svg(width='12' height='8')
+						use(href='sprite.svg#checked')
+					= 'SSD'
+
+		h3.title.configure__server-title Performance Line
+
+		ul.configure__server-list
+			li.configure__server-item.configure__server-item--load
+				img(src='images/loader.gif' width='34' height='34' alt='Загрузка конфигураций')

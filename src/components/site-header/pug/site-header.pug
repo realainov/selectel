@@ -1,0 +1,47 @@
+header.site-header
+	- var sectionName = 'site-header';
+
+	-
+		var connects = [
+		{
+			href: 'tel:+78005550675',
+			title: '+7 (800) 555-06-75',
+			icon: {
+				id: 'phone',
+				width: 12,
+				height: 13
+			}
+		},
+		{
+			href: 'mailto:sales@selectel.ru',
+			title: 'Написать в почту',
+			icon: {
+				id: 'mail',
+				width: 16,
+				height: 12
+			}
+		},
+		{
+			href: 'https://t.me/Selectel',
+			target: 'self',
+			title: 'Написать в Telegram',
+			icon: {
+				id: 'telegram',
+				width: 12,
+				height: 12
+			}
+		}
+		];
+
+	.center-wrapper.site-header__center-wrapper
+		a.site-header__logo-link(href='https://selectel.ru/' target='self')
+			svg(width='112' height='24')
+				use(href='sprite.svg#logo')
+
+		ul.site-header__connect-list
+			each connect in connects
+				li.site-header__connect-item
+					a.link.link--grey.site-header__connect-link(class=`site-header__connect-link--${connect.icon.id}` href=connect.href target=connect.target)
+						svg(width=connect.icon.width height=connect.icon.height)
+							use(href='sprite.svg#' + connect.icon.id)
+						span #{connect.title}

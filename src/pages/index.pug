@@ -1,0 +1,78 @@
+doctype
+
+block page-vars
+	-
+		var page = {
+			name: 'index',
+			title: 'Тестовое задание Selectel',
+			description: 'Тестовое задание Selectel',
+			keywords: ''
+		};
+
+	-
+		var sections = [
+			{
+				href: 'https://selectel.ru/',
+				title: 'Серверы',
+				modifier: 'server'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Оборудование',
+				modifier: 'equipment'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Дата-центры',
+				modifier: 'data'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Блог',
+				modifier: 'blog'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Облако',
+				modifier: 'cloud'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Решения',
+				modifier: 'decision'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'О компании',
+				modifier: 'about'
+			},
+			{
+				href: 'https://selectel.ru/',
+				title: 'Офисы',
+				modifier: 'office'
+			}
+		];
+
+include ../static/pug/vars
+include ../static/pug/mixins
+include ../components/navigation/pug/navigation
+
+html(lang='ru')
+
+	block head
+		include ../static/pug/head
+
+	body.site-body
+		block header
+			include ../components/site-header/pug/site-header
+
+		block main
+			main.site-main(class='site-main--' + page.name)
+				include ../components/page-header/pug/page-header
+				include ../components/configure/pug/configure
+
+		block footer
+			include ../components/site-footer/pug/site-footer
+
+		block scripts
+			include ../static/pug/scripts

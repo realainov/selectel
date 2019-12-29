@@ -1,0 +1,59 @@
+.form-field {
+	input[type=checkbox] + label {
+		padding-left: 30px;
+
+		position: relative;
+
+		&::before {
+			pseud();
+
+			width: 18px;
+			height: 18px;
+
+			border-radius: 50%;
+			border: 1px solid light-black;
+
+			left: 0;
+			top: 6px;
+		}
+
+		svg {
+			position: absolute;
+
+			left: 3px;
+			top: 11px;
+
+			opacity: 0;
+
+			transition: 0.3s ease-out;
+		}
+	}
+
+	input[type=checkbox]:checked + label {
+		svg {
+			opacity: 1;
+		}
+	}
+}
+
+@media (max-width: desktop-width - 1) {
+	.form-field {
+		input[type=checkbox] + label {
+			padding-left: 27px;
+		}
+	}
+}
+
+@media (max-width: tablet-width - 1) {
+	.form-field {
+		input[type=checkbox] + label {
+			&::before {
+				top: 3px;
+			}
+
+			svg {
+				top: 8px;
+			}
+		}
+	}
+}

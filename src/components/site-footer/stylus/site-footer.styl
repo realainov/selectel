@@ -1,0 +1,157 @@
+.site-footer {
+	box-shadow: 0 7px 10px light-black;
+}
+
+.site-footer__center-wrapper {
+	display: flex;
+	justify-content: space-between;
+
+	padding: 33px 44px 26px;
+}
+
+.site-footer__wrapper {
+	flex-shrink: 0;
+
+	width: 172px;
+}
+
+.site-footer__logo-link {
+	display: block;
+
+	margin-top: 6px;
+	margin-bottom: 25px;
+}
+
+.site-footer__social-list {
+	list-reset();
+
+	display: flex;
+	flex-wrap: wrap;
+
+	position: relative;
+	left: -10px;
+
+	margin-bottom: 25px;
+}
+
+.site-footer__social-item {
+	margin-bottom: 10px;
+}
+
+.site-footer__social-link {
+	display: block;
+
+	margin-left: 10px;
+	margin-right: 10px;
+
+	svg {
+		width: 22px;
+		height: 22px;
+	}
+}
+
+.site-footer__navigation {
+	width: 100%;
+
+	margin-bottom: 25px;
+	margin-top: 4px;
+}
+
+@media (max-width: desktop-width - 1) {
+	.site-footer__center-wrapper {
+		padding: 26px 30px 44px;
+	}
+
+	.site-footer__wrapper {
+		width: 138px;
+	}
+
+	.site-footer__logo-link {
+		margin-bottom: 22px;
+
+		svg {
+			width: 82px;
+			height: 18px;
+		}
+	}
+
+	.site-footer__social-list {
+		left: -5px;
+	}
+
+	.site-footer__social-item {
+		margin-bottom: 10px;
+	}
+
+	.site-footer__social-link {
+		margin-left: 8px;
+		margin-right: 8px;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	.site-footer__navigation {
+		width: calc(100% - 50px);
+
+		position: relative;
+		left: -15px;
+	}
+}
+
+@media (max-width: tablet-width - 1) {
+	.site-footer__center-wrapper {
+		padding: 24px 20px 1px;
+	}
+
+	.site-footer__wrapper {
+		width: 71px;
+	}
+
+	.site-footer__logo-link {
+		margin-top: 2px;
+		margin-bottom: 18px;
+
+		svg {
+			width: 52px;
+			height: 11px;
+		}
+	}
+
+	.site-footer__social-list {
+		left: -2px;
+	}
+
+	.site-footer__social-item {
+		order: 20;
+
+		&--vk,
+		&--twitter {
+			order: 1;
+		}
+
+		&--instagram {
+			order: 2;
+		}
+	}
+
+	.site-footer__social-link {
+		margin-left: 5px;
+		margin-right: 5px;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	.site-footer__navigation {
+		width: 100%;
+
+		margin-top: 0;
+
+		left: 0;
+	}
+}

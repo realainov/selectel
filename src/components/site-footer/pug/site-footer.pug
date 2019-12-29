@@ -1,0 +1,61 @@
+footer.site-footer
+	- var sectionName = 'site-footer';
+
+	-
+		var socials = [
+		{
+			href: 'https://vk.com/selectel',
+			target: 'self',
+			title: 'Мы в VK',
+			icon: {
+				id: 'vk',
+				width: 22,
+				height: 23
+			}
+		},
+		{
+			href: 'https://www.facebook.com/selectel/',
+			target: 'self',
+			title: 'Мы в Twitter',
+			icon: {
+				id: 'twitter',
+				width: 22,
+				height: 23
+			}
+		},
+		{
+			href: 'https://twitter.com/selectel',
+			target: 'self',
+			title: 'Мы в Facebook',
+			icon: {
+				id: 'facebook',
+				width: 22,
+				height: 23
+			}
+		},
+		{
+			href: 'https://www.instagram.com/selectel.ru/',
+			target: 'self',
+			title: 'Мы в Instagram',
+			icon: {
+				id: 'instagram',
+				width: 22,
+				height: 23
+			}
+		}
+		];
+
+	.center-wrapper.site-footer__center-wrapper
+		.site-footer__wrapper
+			a.site-footer__logo-link(href='https://selectel.ru/' target='self')
+				svg(width='112' height='24')
+					use(href='sprite.svg#logo')
+
+			ul.site-footer__social-list
+				each social in socials
+					li.site-footer__social-item(class='site-footer__social-item--' + social.icon.id)
+						a.link.link--grey.site-footer__social-link(href=social.href title=social.title target=social.target)
+							svg(width=social.icon.width height=social.icon.height)
+								use(href='sprite.svg#' + social.icon.id)
+
+		+navigation(sections)

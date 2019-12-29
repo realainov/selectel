@@ -1,0 +1,6 @@
+mixin navigation(sections)
+	nav.navigation(class=sectionName + '__navigation')
+		ul.navigation__list
+			each section in sections
+				li.navigation__item(class='navigation__item--' + section.modifier)
+					a.link.link--grey.navigation__link(href=section.href target='self') #{section.title}

@@ -1,0 +1,403 @@
+.configure__center-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.configure__title {
+	margin-bottom: 62px;
+
+	text-align: center;
+	font-size: 32px;
+	line-height: 1.2;
+}
+
+.configure__form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	margin-bottom: 77px;
+}
+
+.configure__form-field {
+	display: flex;
+
+	&--product {
+		justify-self: start;
+
+		width: 326px;
+
+		margin-right: 16px;
+		margin-top: 3px;
+
+		.form-field__label {
+			margin-right: 30px;
+		}
+	}
+
+	&--graphic,
+	&--disk,
+	&--memory {
+		justify-content: center;
+
+		width: 140px;
+
+		margin-left: 10px;
+		margin-right: 10px;
+
+		font-size: 16px;
+		line-height: 1.75;
+	}
+}
+
+.configure__product-slider {
+	width: 100%;
+
+	margin-top: 10px;
+}
+
+.configure__server-title {
+	margin-bottom: 31px;
+
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.2;
+}
+
+.configure__server-list {
+	list-reset();
+
+	margin-bottom: 30px;
+}
+
+.configure__server-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	border-radius: 7px;
+	border: 1px solid grey;
+	padding: 25px 13px 23px;
+
+	font-size: 14px;
+
+	&:not(:last-child) {
+		margin-bottom: 12px;
+	}
+
+	&--no-result,
+	&--error,
+	&--load {
+		display: block;
+
+		border: none;
+		padding: 0;
+
+		font-size: 16px;
+	}
+}
+
+.configure__name-text {
+	display: block;
+
+	width: 100%;
+
+	margin-bottom: 17px;
+
+	font-weight: 700;
+}
+
+.configure__cpu-text {
+	width: 17%;
+
+	padding-right: 40px;
+
+	line-height: 1.25;
+}
+
+.configure__ram-text {
+	width: 19%;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	text-align: center;
+}
+
+.configure__disk-text {
+	width: 19%;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	text-align: center;
+}
+
+.configure__gpu-text {
+	width: 20%;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	text-align: center;
+}
+
+.configure__server-wrapper {
+	width: 138px;
+
+	padding-left: 10px;
+
+	text-align: center;
+}
+
+.configure__price-text {
+	font-weight: 700;
+}
+
+.configure__order-button {
+	margin-top: 13px;
+}
+
+@media (max-width: desktop-width - 1) {
+	.configure__title {
+		margin-bottom: 40px;
+
+		font-size: 26px;
+	}
+
+	.configure__form {
+		margin-bottom: 62px;
+	}
+
+	.configure__form-field {
+		&--product {
+			margin-right: 36px;
+			margin-top: 8px;
+
+			font-size: 18px;
+		}
+
+		&--graphic,
+		&--disk,
+		&--memory {
+			justify-content: flex-start;
+
+			width: 88px;
+
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+	}
+
+	.configure__server-title {
+		margin-bottom: 22px;
+	}
+
+	.configure__server-item {
+		padding: 27px 10px 24px;
+
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+
+		&--no-result,
+		&--error,
+		&--load {
+			display: block;
+
+			padding: 0;
+		}
+	}
+
+	.configure__name-text {
+		margin-bottom: 10px;
+
+		font-size: 16px;
+	}
+
+	.configure__cpu-text {
+		width: 19%;
+
+		margin-top: 8px;
+		padding-right: 7px;
+
+		font-size: 16px;
+	}
+
+	.configure__ram-text {
+		width: 15%;
+
+		margin-top: 11px;
+	}
+
+	.configure__disk-text {
+		width: 24.5%;
+
+		margin-top: 11px;
+	}
+
+	.configure__gpu-text {
+		width: 19.5%;
+
+		margin-top: 11px;
+	}
+
+	.configure__server-wrapper {
+		width: 100px;
+
+		margin-top: 2px;
+		padding-left: 2px;
+	}
+
+	.configure__price-text {
+		display: block;
+
+		width: 69%;
+
+		margin-left: auto;
+		margin-right: auto;
+
+		text-align: center;
+		line-height: 1.25;
+	}
+
+	.configure__order-button {
+		margin-top: 6px;
+	}
+}
+
+@media (max-width: tablet-width - 1) {
+	.configure__title {
+		margin-bottom: 30px;
+
+		font-size: 18px;
+	}
+
+	.configure__form {
+		display: flex;
+		flex-direction: column;
+
+		margin-bottom: 19px;
+	}
+
+	.configure__form-field {
+		margin-left: 0;
+		margin-right: 0;
+
+		font-size: 12px;
+
+		&--product {
+			width: calc(100% - 8px);
+
+			margin-top: 0;
+			margin-bottom: 44px;
+
+			.form-field__label {
+				margin-right: 34px;
+				margin-top: 3px;
+			}
+		}
+
+		&--graphic,
+		&--disk,
+		&--memory {
+			margin-bottom: 18px;
+		}
+	}
+
+	.configure__server-title {
+		margin-bottom: 19px;
+
+		font-size: 14px;
+	}
+
+	.configure__server-list {
+		margin-bottom: 32px;
+	}
+
+	.configure__server-item {
+		display: flex;
+		flex-direction: column;
+
+		padding: 18px 15px 15px;
+
+		font-size: 12px;
+
+		&--no-result,
+		&--error,
+		&--load {
+			display: block;
+
+			padding: 0;
+		}
+	}
+
+	.configure__name-text {
+		margin-bottom: 13px;
+
+		font-size: inherit;
+	}
+
+	.configure__cpu-text {
+		width: 100%;
+
+		margin-top: 0;
+		margin-bottom: 23px;
+
+		font-size: inherit;
+	}
+
+	.configure__ram-text {
+		width: 100%;
+
+		margin-top: 0;
+		margin-bottom: 22px;
+		padding: 0;
+
+		text-align: left;
+	}
+
+	.configure__disk-text {
+		width: 100%;
+
+		margin-top: 0;
+		margin-bottom: 28px;
+		padding: 0;
+
+		text-align: left;
+	}
+
+	.configure__gpu-text {
+		width: 100%;
+
+		margin-top: 0;
+		margin-bottom: 22px;
+		padding: 0;
+
+		text-align: left;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.configure__server-wrapper {
+		width: 100%;
+
+		text-align: left;
+	}
+
+	.configure__price-text {
+		width: 100%;
+
+		margin-bottom: 15px;
+
+		text-align: left;
+	}
+
+	.configure__order-button {
+		margin-right: auto;
+		margin-top: 0;
+	}
+}

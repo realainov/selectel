@@ -1,0 +1,168 @@
+.site-header__center-wrapper {
+	display: flex;
+	justify-content: space-between;
+
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.site-header__logo-link {
+	display: block;
+
+	margin-right: 248px;
+
+	svg {
+		width: 112px;
+		height: 24px;
+	}
+}
+
+.site-header__connect-list {
+	list-reset();
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	width: 100%;
+
+	margin-top: 2px;
+}
+
+.site-header__connect-link {
+	display: block;
+
+	margin-left: 8px;
+	margin-right: 8px;
+
+	font-size: 12px;
+	line-height: 167%;
+
+	svg {
+		margin-right: 8px;
+
+		position: relative;
+		top: 1px;
+	}
+
+	&--phone {
+		svg {
+			width: 12px;
+			height: 13px;
+
+			left: 4px;
+			top: 3px;
+		}
+	}
+
+	&--mail {
+		svg {
+			width: 16px;
+			height: 12px;
+
+			left: -1px;
+		}
+	}
+
+	&--telegram {
+		svg {
+			width: 12px;
+			height: 12px;
+		}
+	}
+}
+
+@media (max-width: desktop-width - 1) {
+	.site-header__logo-link {
+		svg {
+			width: 82px;
+			height: 18px;
+		}
+	}
+
+	.site-header__connect-list {
+		width: auto;
+
+		position: relative;
+		right: -20px;
+	}
+
+	.site-header__connect-link {
+		margin-left: 20px;
+		margin-right: 20px;
+
+		svg {
+			margin-right: 0;
+		}
+
+		span {
+			display: none;
+		}
+
+		&--phone {
+			svg {
+				left: 4px;
+				top: 1px;
+			}
+		}
+
+		&--mail {
+			svg {
+				left: 1px;
+			}
+		}
+	}
+}
+
+@media (max-width: tablet-width - 1) {
+	.site-header__center-wrapper {
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+
+	.site-header__logo-link {
+		margin-right: 20px;
+		margin-top: 7px;
+
+		svg {
+			width: 52px;
+			height: 11px;
+		}
+	}
+
+	.site-header__connect-list {
+		grid-column-gap: 16px;
+
+		margin-top: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.site-header__connect-link {
+		&--phone {
+			svg {
+				width: 8px;
+				height: 8.67px;
+
+				left: 0;
+				top: 2px;
+			}
+		}
+
+		&--mail {
+			svg {
+				width: 9px;
+				height: 6.75px;
+
+				left: 0;
+			}
+		}
+
+		&--telegram {
+			svg {
+				width: 8px;
+				height: 8px;
+			}
+		}
+	}
+}
