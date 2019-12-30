@@ -103,7 +103,7 @@ gulp.task('scripts:main', () => {
 		.pipe(plumber({
 			errorHandler: notify.onError((err) => {
 				return {
-					title: 'scripts',
+					title: 'scripts:main',
 					message: err.message
 				};
 			})
@@ -118,7 +118,7 @@ gulp.task('scripts:main', () => {
 				comments: false
 			}
 		}))
-		.pipe(rename('main.js'))
+		.pipe(rename('main.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('public/js'));
 });
@@ -128,17 +128,35 @@ gulp.task('scripts:app', () => {
 		.pipe(plumber({
 			errorHandler: notify.onError((err) => {
 				return {
-					title: 'app',
+					title: 'scripts:app',
 					message: err.message
 				};
 			})
 		}))
 		.pipe(webpack(webpackConfig))
-		.pipe(rename('app.js'))
+		.pipe(rename('app.min.js'))
 		.pipe(gulp.dest('public/js'));
 });
 
-gulp.task('scripts', gulp.parallel('scripts:main', 'scripts:app'));
+gulp.task('scripts:separate', () => {
+	return gulp.src('src/static/js/separate/*.js')
+		.pipe(plumber({
+			errorHandler: notify.onError((err) => {
+				return {
+					title: 'scripts:separate',
+					message: err.message
+				};
+			})
+		}))
+		.pipe(uglify({
+			output: {
+				comments: false
+			}
+		}))
+		.pipe(gulp.dest('public/js'));
+});
+
+gulp.task('scripts', gulp.parallel('scripts:main', 'scripts:app', 'scripts:separate'));
 
 gulp.task('images', () => {
 	return gulp.src([
@@ -167,7 +185,7 @@ gulp.task('sprite', () => {
 	return gulp.src('src/static/images/icons/*.svg')
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(rename('sprite.svg'))
-		.pipe(gulp.dest('public'));
+		.pipe(gulp.dest('public/images'));
 });
 
 gulp.task('favicon', (done) => {
@@ -241,8 +259,9 @@ gulp.task('watcher', () => {
 	gulp.watch(['src/static/fonts', 'src/static/misc'], gulp.parallel('copy'));
 	gulp.watch('src/**/*.pug', gulp.series('pages'));
 	gulp.watch('src/**/*.{styl,css}', gulp.parallel('styles'));
-	gulp.watch(['src/**/*.js', '!src/static/js/app/**/*.js'], gulp.parallel('scripts:main'));
+	gulp.watch(['src/**/*.js', '!src/static/js/app/**/*.js', '!src/static/js/separate/*.js'], gulp.parallel('scripts:main'));
 	gulp.watch('src/static/js/app/**/*.js', gulp.parallel('scripts:app'));
+	gulp.watch('src/static/js/separate/*.js', gulp.parallel('scripts:separate'));
 	gulp.watch('src/**/*.{jpg,jpeg,png,svg,gif}', gulp.parallel('images'));
 	gulp.watch('src/static/images/icons/*.svg', gulp.parallel('sprite'));
 	gulp.watch('src/static/images/favicon.{jpg,jpeg,png,svg,gif}', gulp.parallel('favicon'));

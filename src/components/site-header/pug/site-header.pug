@@ -36,12 +36,12 @@ header.site-header
 	.center-wrapper.site-header__center-wrapper
 		a.site-header__logo-link(href='https://selectel.ru/' target='self')
 			svg(width='112' height='24')
-				use(href='sprite.svg#logo')
+				use(href='images/sprite.svg#logo')
 
 		ul.site-header__connect-list
 			each connect in connects
 				li.site-header__connect-item
 					a.link.link--grey.site-header__connect-link(class=`site-header__connect-link--${connect.icon.id}` href=connect.href target=connect.target)
 						svg(width=connect.icon.width height=connect.icon.height)
-							use(href='sprite.svg#' + connect.icon.id)
+							use(href='images/sprite.svg#' + connect.icon.id)
 						span #{connect.title}
