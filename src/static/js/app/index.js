@@ -41,7 +41,7 @@ if (configureElement !== null) {
 
 		const sortingConfigurations = configurations
 			.filter((item) => {
-				return item.cpu.cores === +rangeSlider.get().substring(0, 1);
+				return item.cpu.cores * item.cpu.count === +rangeSlider.get();
 			})
 			.filter((item) => {
 				return graphicInputElement.checked ? item.gpu : true;

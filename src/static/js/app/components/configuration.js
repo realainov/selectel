@@ -1,11 +1,13 @@
 import {createElement, addSpacesIntoNumber} from '../utils';
 
 const createTemplate = (server) => {
-	const {name, ram} = server;
 	let {disk, cpu, price, gpu} = server;
 
+	const {name, ram} = server;
+	const cpuCoresTotalCount = cpu.cores * cpu.count;
+
 	disk = disk.count > 1 ? `${disk.count} x ${disk.value} ГБ ${disk.type}` : `${disk.value} ГБ ${disk.type}`;
-	cpu = cpu.count > 1 ? `${cpu.count} x ${cpu.name}, ${cpu.cores === 2 || cpu.cores === 4 ? `${cpu.cores} ядра` : `${cpu.cores} ядер`}` : `${cpu.name}, ${cpu.cores === 2 || cpu.cores === 4 ? `${cpu.cores} ядра` : `${cpu.cores} ядер`}`;
+	cpu = cpu.count > 1 ? `${cpu.count} x ${cpu.name}, ${cpuCoresTotalCount > 1 && cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}` : `${cpu.name}, ${cpuCoresTotalCount > 1 && cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}`;
 	gpu = gpu !== undefined ? gpu : '';
 	price = `${addSpacesIntoNumber(price / 100)} ₽/месяц`;
 

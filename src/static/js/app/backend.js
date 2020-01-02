@@ -23,7 +23,7 @@ const createXHR = (onLoad, onError) => {
 export const backend = {
 	load: (onLoad, onError) => {
 		// const URL = 'https://api.jsonbin.io/b/5df3c10a2c714135cda0bf0f/1';
-		const URL = 'https://api.myjson.com/bins/1hgpuk';
+		const URL = 'https://api.jsonbin.io/b/5df3c10a2c714135cda0bf0f/1';
 
 		const XHR_TIMEOUT = 10000;
 
