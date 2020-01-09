@@ -7,7 +7,7 @@ const createTemplate = (server) => {
 	const cpuCoresTotalCount = cpu.cores * cpu.count;
 
 	disk = disk.count > 1 ? `${disk.count} x ${disk.value} ГБ ${disk.type}` : `${disk.value} ГБ ${disk.type}`;
-	cpu = cpu.count > 1 ? `${cpu.count} x ${cpu.name}, ${cpuCoresTotalCount > 1 && cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}` : `${cpu.name}, ${cpuCoresTotalCount > 1 && cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}`;
+	cpu = cpu.count > 1 ? `${cpu.count} x ${cpu.name}, ${cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}` : `${cpu.name}, ${cpuCoresTotalCount < 5 ? `${cpuCoresTotalCount} ядра` : `${cpuCoresTotalCount} ядер`}`;
 	gpu = gpu !== undefined ? gpu : '';
 	price = `${addSpacesIntoNumber(price / 100)} ₽/месяц`;
 
